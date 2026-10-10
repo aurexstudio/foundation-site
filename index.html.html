@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sri Adishankaracharya Foundation</title>
+<meta name="description" content="Sri Adishankaracharya Foundation works for Sanskrit education and selfless service to society.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500&family=Noto+Serif+Devanagari:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#FCFBF8;--ink:#4A1625;--soft:#6F5A5F;--line:#E9E2DA;--gold:#D9831F;--serif:"Cormorant Garamond",Georgia,serif;--sans:Inter,system-ui,sans-serif;--deva:"Noto Serif Devanagari","Cormorant Garamond",serif}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.7;font-size:17px;overflow-x:hidden}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.wrap{max-width:920px;margin:0 auto;padding:0 24px}
+#bar{position:fixed;top:0;left:0;height:3px;width:0;background:var(--gold);z-index:20}
+header{position:sticky;top:0;z-index:10;background:rgba(252,251,248,.85);backdrop-filter:blur(8px);transition:box-shadow .3s}
+header.s{box-shadow:0 1px 0 var(--line)}
+.hd{display:flex;justify-content:space-between;align-items:center;max-width:920px;margin:0 auto;padding:16px 24px}
+.logo{font-family:var(--serif);font-size:1.25rem;font-weight:600;text-decoration:none}
+nav a{margin-left:24px;font-size:.9rem;color:var(--soft);text-decoration:none;position:relative}
+nav a::after{content:"";position:absolute;left:0;bottom:-3px;height:1px;width:100%;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .3s}
+nav a:hover::after,nav a:focus-visible::after{transform:scaleX(1)}
+.hero{position:relative;padding:80px 0 96px;min-height:80vh;display:flex;align-items:center}
+.glow{position:absolute;inset:0;pointer-events:none;background:radial-gradient(420px circle at var(--x,70%) var(--y,30%),rgba(217,131,31,.13),transparent 70%)}
+.hero .wrap{position:relative}
+.hero p.lead{font-family:var(--serif);font-size:clamp(1.3rem,3vw,1.7rem);color:var(--soft);max-width:22em}
+.word{font-family:var(--deva);font-weight:600;font-size:clamp(3.2rem,12vw,7.5rem);line-height:1.25;margin:12px 0 0;transition:opacity .4s,transform .4s}
+.word.out{opacity:0;transform:translateY(14px)}
+.meaning{font-family:var(--serif);font-size:1.5rem;color:var(--gold);min-height:2.2rem;transition:opacity .4s}
+.meaning.out{opacity:0}
+.dots{display:flex;gap:10px;margin:28px 0 40px}
+.dots button{width:10px;height:10px;border-radius:50%;border:0;background:var(--line);cursor:pointer;padding:0;transition:background .3s,transform .3s}
+.dots button:hover{transform:scale(1.4)}
+.dots button.on{background:var(--ink);transform:scale(1.4)}
+.btn{display:inline-block;padding:13px 28px;background:var(--ink);color:#fff;text-decoration:none;border-radius:999px;font-size:.95rem;transition:transform .25s,box-shadow .25s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(74,22,37,.2)}
+section{padding:80px 0;border-top:1px solid var(--line)}
+h2{font-family:var(--serif);font-weight:500;font-size:2.1rem;margin-bottom:24px}
+p{max-width:38em;color:#3b2c31}
+p+p{margin-top:16px}
+.vision{font-family:var(--serif);font-size:1.4rem;line-height:1.5;color:var(--ink);border-left:3px solid var(--gold);padding-left:20px;margin-top:32px}
+.acc{border-top:1px solid var(--line)}
+.acc button{width:100%;display:flex;justify-content:space-between;align-items:center;background:none;border:0;border-bottom:1px solid var(--line);padding:20px 0;font-family:var(--serif);font-size:1.5rem;color:var(--ink);cursor:pointer;text-align:left;transition:padding-left .3s}
+.acc button:hover{padding-left:10px}
+.acc button span{font-family:var(--sans);font-size:1.4rem;color:var(--gold);transition:transform .3s}
+.acc button[aria-expanded=true] span{transform:rotate(45deg)}
+.panel{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s ease}
+.panel.open{grid-template-rows:1fr}
+.panel div{overflow:hidden}
+.panel p{padding:16px 0 8px;color:var(--soft)}
+.contact-list{list-style:none;padding:0;margin-top:24px}
+.contact-list li{padding:3px 0}
+footer{padding:40px 24px;text-align:center;color:var(--soft);font-size:.85rem;border-top:1px solid var(--line)}
+.rv{opacity:0;transform:translateY(18px);transition:opacity .7s,transform .7s}
+.rv.in{opacity:1;transform:none}
+@media (max-width:600px){nav{display:none}.hero{padding:48px 0 64px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}html{scroll-behavior:auto}.rv{opacity:1;transform:none}}
+
+.mandala{position:absolute;right:-140px;top:50%;margin-top:-290px;width:580px;height:580px;opacity:.28;pointer-events:none;animation:spin 120s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.gallery{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.gallery figure{position:relative;aspect-ratio:4/5;border-radius:14px;overflow:hidden;background:linear-gradient(160deg,#f3e6d6,#e9d3c0)}
+.gallery img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s}
+.gallery figure:hover img{transform:scale(1.05)}
+.gallery figcaption{position:absolute;left:0;right:0;bottom:0;padding:28px 16px 14px;color:#fff;font-family:var(--serif);font-size:1.15rem;background:linear-gradient(transparent,rgba(40,10,20,.7))}
+.gallery figure.empty img{display:none}
+.gallery figure.empty::before{content:"Add photo";position:absolute;inset:0;display:grid;place-items:center;color:var(--soft);font-size:.9rem}
+.gallery figure.empty figcaption{color:var(--ink);background:none}
+@media (max-width:600px){.mandala{width:380px;height:380px;right:-150px;margin-top:-190px}}
+
+section{scroll-margin-top:60px}
+.hero .lead,.hero .word,.hero .meaning,.hero .dots,.hero .btn{animation:rise .9s cubic-bezier(.2,.7,.2,1) backwards}
+.hero .word{animation-delay:.15s}.hero .meaning{animation-delay:.3s}.hero .dots{animation-delay:.45s}.hero .btn{animation-delay:.6s}
+@keyframes rise{from{opacity:0;transform:translateY(24px)}}
+.mandala{translate:0 calc(var(--sy,0)*.25px)}
+.acc button,.gallery figure{opacity:0;transform:translateY(18px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1),padding-left .3s}
+.acc.in button,.gallery.in figure{opacity:1;transform:none}
+.acc.in .panel{opacity:1}
+.btn{transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s}
+@media (prefers-reduced-motion:reduce){.acc button,.gallery figure{opacity:1;transform:none}}
+
+.herobg{position:absolute;inset:0;background:url(images/hero.jpg) center/cover no-repeat;pointer-events:none}
+.herobg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(252,251,248,.96) 25%,rgba(252,251,248,.55) 70%,rgba(252,251,248,.3))}
+.scene{position:absolute;left:0;bottom:0;width:100%;height:55%;pointer-events:none;animation:fade 2s ease .3s backwards}
+.sun{animation:breathe 8s ease-in-out infinite;transform-origin:800px 215px}
+@keyframes fade{from{opacity:0;transform:translateY(30px)}}
+@keyframes breathe{50%{transform:scale(1.06)}}
+
+.dd{position:absolute;color:var(--gold);fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;opacity:.55;pointer-events:none;animation:floaty 7s ease-in-out infinite}
+.dd.mr{color:var(--ink);opacity:.14}
+@keyframes floaty{50%{transform:translateY(-12px) rotate(4deg)}}
+section{position:relative;overflow:hidden}
+h2::after{content:"";display:block;width:56px;height:3px;border-radius:3px;background:var(--gold);margin-top:12px}
+.hero .dd{overflow:visible}
+.about-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:48px;align-items:center}
+.omwrap{position:relative;aspect-ratio:1;max-width:300px;width:100%;margin:0 auto;display:grid;place-items:center}
+.omwrap::before{content:"";position:absolute;inset:0;border:2px dashed var(--gold);border-radius:50%;animation:spin 60s linear infinite}
+.omwrap::after{content:"";position:absolute;inset:18px;border-radius:50%;background:radial-gradient(circle,#fff3e0,#f7e3c8)}
+.omwrap span{position:relative;z-index:1;font-family:var(--deva);font-size:7rem;color:var(--ink);line-height:1;transition:transform .5s}
+.omwrap:hover span{transform:scale(1.1)}
+#mission{background:#F8F1E8}
+.acc button{gap:16px;justify-content:flex-start}
+.acc button em{font-style:normal;flex:1}
+.acc button i{width:38px;height:38px;border-radius:50%;background:#fff;display:grid;place-items:center;flex:none;transition:background .3s,transform .4s}
+.acc button i svg{width:22px;height:22px;fill:none;stroke:var(--gold);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.acc button:hover i{transform:rotate(-12deg) scale(1.1)}
+.cards{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.card{position:relative;background:#fff;border:1px solid var(--line);border-radius:20px;padding:28px;transition:transform .4s cubic-bezier(.2,.7,.2,1),box-shadow .4s,border-color .4s}
+.card:hover{transform:translateY(-6px);box-shadow:0 18px 36px rgba(74,22,37,.1);border-color:var(--gold)}
+.card svg{width:38px;height:38px;fill:none;stroke:var(--gold);stroke-width:3;stroke-linecap:round;stroke-linejoin:round;margin-bottom:14px}
+.chip{display:inline-block;font-size:.8rem;color:var(--soft);background:#F8F1E8;border-radius:999px;padding:2px 12px;margin-bottom:10px}
+.card h3{font-family:var(--serif);font-size:1.5rem;font-weight:600;margin-bottom:6px}
+.card p{font-size:.95rem;color:var(--soft)}
+.panel2{position:relative;overflow:hidden;background:var(--ink);color:#fff;border-radius:28px;padding:56px 40px}
+.panel2 h2{color:#fff}
+.panel2 p{color:#f1dfe3}
+.panel2 .btn{background:var(--gold);color:#3a1020;font-weight:500}
+.panel2 .contact-list{color:#f1dfe3}
+.panel2 .dd{color:#fff;opacity:.12}
+.divider{display:flex;justify-content:center;padding:8px 0 0}
+footer .lot{width:34px;height:34px;display:block;margin:0 auto 10px;fill:none;stroke:var(--gold);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+@media (max-width:700px){.about-grid{grid-template-columns:1fr}.omwrap{max-width:220px}.omwrap span{font-size:5rem}.panel2{padding:40px 24px}}
+.credit{margin-top:10px;font-size:.82rem}.credit strong{color:var(--ink);font-weight:500}.credit a{text-decoration:none;border-bottom:1px solid var(--gold);transition:color .3s}.credit a:hover{color:var(--gold)}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="lotus" viewBox="0 0 100 100"><path d="M50 18C38 38 38 60 50 78 62 60 62 38 50 18Z"/><path d="M50 78C28 74 14 58 12 40 30 44 42 58 50 78Z"/><path d="M50 78C72 74 86 58 88 40 70 44 58 58 50 78Z"/><path d="M50 80C26 86 8 76 4 62M50 80C74 86 92 76 96 62M30 90H70"/></symbol>
+<symbol id="diya" viewBox="0 0 100 100"><path d="M16 60C20 84 80 84 84 60Z"/><path d="M50 54C40 44 44 32 50 20 56 32 60 44 50 54Z"/><path d="M36 92H64M10 58H90"/></symbol>
+<symbol id="sparkle" viewBox="0 0 100 100"><path d="M50 8L57 43 92 50 57 57 50 92 43 57 8 50 43 43Z"/></symbol>
+<symbol id="leaf" viewBox="0 0 100 100"><path d="M50 92V60M50 60C20 55 16 25 50 6 84 25 80 55 50 60ZM50 60V28M50 48L38 36M50 48L62 36"/></symbol>
+<symbol id="swirl" viewBox="0 0 100 100"><path d="M18 62C14 28 64 24 66 54 67 76 40 78 40 60 40 48 54 48 56 56"/></symbol>
+</defs></svg>
+<div id="bar"></div>
+<header id="hd"><div class="hd">
+  <a class="logo" href="#top">Sri Adishankaracharya Foundation</a>
+  <nav><a href="#about">About</a><a href="#mission">Mission</a><a href="#seva">Our work</a><a href="#contact">Contact</a></nav>
+</div></header>
+
+<main id="top">
+  <div class="hero" id="hero">
+    <div class="herobg"></div>
+    <svg class="scene" viewBox="0 0 1200 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+      <defs><radialGradient id="sg" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#F2B24A" stop-opacity=".75"/><stop offset="1" stop-color="#F2B24A" stop-opacity="0"/></radialGradient></defs>
+      <circle class="sun" cx="800" cy="215" r="150" fill="url(#sg)"/>
+      <path d="M0 300V250C150 215 280 235 420 225S700 205 860 232 1080 225 1200 240V300Z" fill="#4A1625" opacity=".07"/>
+      <g fill="#4A1625" opacity=".16">
+        <path d="M700 300V250H720V215H745V185H770V155H790V130L800 100 810 130V155H830V185H855V215H880V250H900V300Z"/>
+        <rect x="798" y="82" width="4" height="20"/><circle cx="800" cy="78" r="5"/>
+        <path d="M960 300V262H975V238H992V216H1008V200L1015 182 1022 200V216H1038V238H1055V262H1070V300Z"/>
+        <path d="M600 300V268H614V248H628V232L636 216 644 232V248H658V268H672V300Z"/>
+      </g>
+      <path d="M0 300V268C200 250 380 270 560 262S900 252 1200 270V300Z" fill="#4A1625" opacity=".1"/>
+    </svg>
+    <div class="glow" id="glow"></div><svg class="dd " style="width:30px;left:6%;top:18%;animation-delay:-1s" viewBox="0 0 100 100" aria-hidden="true"><use href="#sparkle"/></svg><svg class="dd " style="width:20px;right:42%;top:12%;animation-delay:-4s" viewBox="0 0 100 100" aria-hidden="true"><use href="#sparkle"/></svg><svg class="dd " style="width:46px;right:10%;top:16%;animation-delay:-2s" viewBox="0 0 100 100" aria-hidden="true"><use href="#leaf"/></svg>
+    <svg class="mandala" viewBox="0 0 400 400" fill="none" stroke="#D9831F" stroke-width="1" aria-hidden="true"><ellipse cx="200" cy="90" rx="22" ry="70" transform="rotate(0 200 200)"/><ellipse cx="200" cy="90" rx="22" ry="70" transform="rotate(30 200 200)"/><ellipse cx="200" cy="90" rx="22" ry="70" transform="rotate(60 200 200)"/><ellipse cx="200" cy="90" rx="22" ry="70" transform="rotate(90 200 200)"/><ellipse cx="200" cy="90" rx="22" ry="70" transform="rotate(120 200 200)"/><ellipse cx="200" cy="90" rx="22" ry="70" transform="rotate(150 200 200)"/><ellipse cx="200" cy="90" rx="22" ry="70" transform="rotate(180 200 200)"/><ellipse cx="200" cy="90" rx="22" ry="70" transform="rotate(210 200 200)"/><ellipse cx="200" cy="90" rx="22" ry="70" transform="rotate(240 200 200)"/><ellipse cx="200" cy="90" rx="22" ry="70" transform="rotate(270 200 200)"/><ellipse cx="200" cy="90" rx="22" ry="70" transform="rotate(300 200 200)"/><ellipse cx="200" cy="90" rx="22" ry="70" transform="rotate(330 200 200)"/><ellipse cx="200" cy="140" rx="14" ry="42" transform="rotate(15 200 200)"/><ellipse cx="200" cy="140" rx="14" ry="42" transform="rotate(45 200 200)"/><ellipse cx="200" cy="140" rx="14" ry="42" transform="rotate(75 200 200)"/><ellipse cx="200" cy="140" rx="14" ry="42" transform="rotate(105 200 200)"/><ellipse cx="200" cy="140" rx="14" ry="42" transform="rotate(135 200 200)"/><ellipse cx="200" cy="140" rx="14" ry="42" transform="rotate(165 200 200)"/><ellipse cx="200" cy="140" rx="14" ry="42" transform="rotate(195 200 200)"/><ellipse cx="200" cy="140" rx="14" ry="42" transform="rotate(225 200 200)"/><ellipse cx="200" cy="140" rx="14" ry="42" transform="rotate(255 200 200)"/><ellipse cx="200" cy="140" rx="14" ry="42" transform="rotate(285 200 200)"/><ellipse cx="200" cy="140" rx="14" ry="42" transform="rotate(315 200 200)"/><ellipse cx="200" cy="140" rx="14" ry="42" transform="rotate(345 200 200)"/><circle cx="200" cy="200" r="190"/><circle cx="200" cy="200" r="120"/><circle cx="200" cy="200" r="30"/></svg>
+    <div class="wrap">
+      <p class="lead">We work for a society that is</p>
+      <div class="word" id="word" aria-live="polite">सुसंस्कृत</div>
+      <div class="meaning" id="meaning">Cultured</div>
+      <div class="dots" id="dots" aria-label="Choose a quality"></div>
+      <a class="btn" href="#contact">Join our mission</a>
+    </div>
+  </div>
+
+  <section id="about">
+    <svg class="dd mr" style="width:140px;right:4%;top:30px" viewBox="0 0 100 100" aria-hidden="true"><use href="#lotus"/></svg>
+    <div class="wrap rv"><div class="about-grid">
+      <div>
+        <h2>About us</h2>
+        <p>Sri Adishankaracharya Foundation is a non-profit organisation working for Sanskrit education and service to society. [Add 2 to 3 lines about when and why the foundation began, and where it works.]</p>
+        <p class="vision">To make Bharat prosperous and glorious again, one educated, healthy and service-minded person at a time.</p>
+      </div>
+      <div class="omwrap" aria-hidden="true"><span>ॐ</span></div>
+    </div></div>
+    <svg class="dd " style="width:34px;left:3%;bottom:40px" viewBox="0 0 100 100" aria-hidden="true"><use href="#sparkle"/></svg>
+  </section>
+
+  <section id="mission"><svg class="dd " style="width:40px;right:6%;top:50px" viewBox="0 0 100 100" aria-hidden="true"><use href="#sparkle"/></svg><svg class="dd mr" style="width:120px;left:-20px;bottom:30px" viewBox="0 0 100 100" aria-hidden="true"><use href="#lotus"/></svg><div class="wrap rv">
+    <h2>What we work for</h2>
+    <div class="acc" id="acc"></div>
+  </div></section>
+
+  <section id="gallery"><svg class="dd " style="width:70px;right:5%;top:40px;animation-delay:-2s" viewBox="0 0 100 100" aria-hidden="true"><use href="#swirl"/></svg><svg class="dd mr" style="width:100px;left:2%;bottom:20px" viewBox="0 0 100 100" aria-hidden="true"><use href="#diya"/></svg><div class="wrap rv">
+    <h2>Moments of seva</h2>
+    <!-- Put your own photos in an "images" folder next to index.html, named photo1.jpg, photo2.jpg, photo3.jpg -->
+    <div class="gallery">
+      <figure><img src="images/photo1.jpg" alt="Foundation event" onerror="this.parentNode.classList.add('empty')"><figcaption>Satsang</figcaption></figure>
+      <figure><img src="images/photo2.jpg" alt="Sanskrit class" onerror="this.parentNode.classList.add('empty')"><figcaption>Sanskrit class</figcaption></figure>
+      <figure><img src="images/photo3.jpg" alt="Community service" onerror="this.parentNode.classList.add('empty')"><figcaption>Community seva</figcaption></figure>
+    </div>
+  </div></section>
+
+  <section id="seva"><svg class="dd " style="width:36px;left:5%;top:36px;animation-delay:-3s" viewBox="0 0 100 100" aria-hidden="true"><use href="#sparkle"/></svg><div class="wrap rv"><h2>Our work</h2><div class="cards"><div class="card"><svg viewBox="0 0 100 100"><use href="#lotus"/></svg><span class="chip">[date or schedule]</span><h3>[Program name]</h3><p>[One line about what happens and who it helps.]</p></div><div class="card"><svg viewBox="0 0 100 100"><use href="#leaf"/></svg><span class="chip">[date or schedule]</span><h3>[Program name]</h3><p>[One line about what happens and who it helps.]</p></div><div class="card"><svg viewBox="0 0 100 100"><use href="#diya"/></svg><span class="chip">[date or schedule]</span><h3>[Program name]</h3><p>[One line about what happens and who it helps.]</p></div></div></div></section>
+
+  <section id="contact"><div class="wrap rv"><div class="panel2"><svg class="dd " style="width:260px;right:-30px;bottom:-40px;animation:none" viewBox="0 0 100 100" aria-hidden="true"><use href="#lotus"/></svg><div style="position:relative">
+    <h2>Get involved</h2>
+    <p>Volunteer, attend an event, or simply ask how you can help. We would be glad to hear from you.</p>
+    <p style="margin-top:28px"><!-- Replace 910000000000 with the real number: country code, no plus sign or spaces -->
+    <a class="btn" href="https://wa.me/910000000000?text=Namaste%2C%20I%20would%20like%20to%20know%20more%20about%20the%20foundation." target="_blank" rel="noopener">Message on WhatsApp</a></p>
+    <ul class="contact-list">
+      <li>Phone: [add number]</li>
+      <li>Email: [add email]</li>
+      <li>Address: [add address, Pune]</li>
+    </ul>
+  </div></div></div></section>
+</main>
+<footer><svg class="lot" viewBox="0 0 100 100" aria-hidden="true"><use href="#lotus"/></svg>&copy; 2026 Sri Adishankaracharya Foundation<div class="credit">Website made by <strong>AurexStudio</strong> &middot; <a href="mailto:AurexStudio@proton.me">AurexStudio@proton.me</a></div></footer>
+
+<script>
+(function(){
+  var Q=[["सुसंस्कृत","Cultured"],["सुशिक्षित","Well-educated"],["सुरक्षित","Safe"],["सम्पन्न","Prosperous"],["स्वस्थ","Healthy"],["सेवापरायण","Devoted to service"],["सर्वहितप्रद","Beneficial to all"]];
+  var word=document.getElementById("word"),meaning=document.getElementById("meaning"),dots=document.getElementById("dots"),i=0,timer;
+  Q.forEach(function(q,n){var b=document.createElement("button");b.setAttribute("aria-label",q[1]);b.onclick=function(){show(n);restart()};dots.appendChild(b)});
+  function show(n){
+    i=n;word.classList.add("out");meaning.classList.add("out");
+    setTimeout(function(){word.textContent=Q[n][0];meaning.textContent=Q[n][1];word.classList.remove("out");meaning.classList.remove("out");
+      Array.prototype.forEach.call(dots.children,function(d,k){d.classList.toggle("on",k===n)})},350);
+  }
+  function restart(){clearInterval(timer);timer=setInterval(function(){show((i+1)%Q.length)},3200)}
+  Array.prototype.forEach.call(dots.children,function(d,k){d.classList.toggle("on",k===0)});
+  restart();
+
+  var M=[["Sanskrit education","Bringing the language and its knowledge to students and families."],["Health and wellbeing","Supporting healthier lives in the communities we serve."],["Safety and security","Helping people live without fear and with dignity."],["Prosperity","Encouraging skills and livelihoods that strengthen families."],["Selfless service","Seva as a way of life, for the good of everyone."]];
+  var acc=document.getElementById("acc");
+  M.forEach(function(m,n){
+    var b=document.createElement("button");b.setAttribute("aria-expanded","false");b.setAttribute("aria-controls","p"+n);b.innerHTML="<i><svg viewBox=\"0 0 100 100\"><use href=\"#"+["lotus","leaf","diya","sparkle","swirl"][n]+"\"/></svg></i><em>"+m[0]+"</em><span>+</span>";
+    var p=document.createElement("div");p.className="panel";p.id="p"+n;p.innerHTML="<div><p>"+m[1]+"</p></div>";
+    b.onclick=function(){var o=p.classList.toggle("open");b.setAttribute("aria-expanded",o)};
+    acc.appendChild(b);acc.appendChild(p);
+  });
+
+  var hero=document.getElementById("hero"),glow=document.getElementById("glow");
+  var tx=0,ty=0,cx=0,cy=0,r0=null;
+  hero.addEventListener("pointermove",function(e){r0=hero.getBoundingClientRect();tx=e.clientX-r0.left;ty=e.clientY-r0.top});
+  (function loop(){cx+=(tx-cx)*.08;cy+=(ty-cy)*.08;glow.style.setProperty("--x",cx+"px");glow.style.setProperty("--y",cy+"px");requestAnimationFrame(loop)})();
+
+  var bar=document.getElementById("bar"),hd=document.getElementById("hd");
+  window.addEventListener("scroll",function(){var h=document.documentElement;bar.style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+"%";hd.classList.toggle("s",h.scrollTop>10);document.documentElement.style.setProperty("--sy",h.scrollTop)},{passive:true});
+
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}})},{threshold:.15});
+  document.querySelectorAll(".rv").forEach(function(el){io.observe(el)});
+  [".acc",".gallery"].forEach(function(sel){var g=document.querySelector(sel);
+    Array.prototype.forEach.call(g.querySelectorAll("button,figure"),function(el,n){el.style.transitionDelay=(n*90)+"ms"});
+    new IntersectionObserver(function(es,o){es.forEach(function(e){if(e.isIntersecting){g.classList.add("in");o.disconnect();setTimeout(function(){Array.prototype.forEach.call(g.querySelectorAll("button,figure"),function(el){el.style.transitionDelay="0ms"})},1400)}})},{threshold:.2}).observe(g)});
+})();
+</script>
+</body>
+</html>
